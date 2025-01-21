@@ -5,6 +5,8 @@ import "./globals.css";
 import Link from "next/link";
 import Sidebar from "./Interfaces/sidebar";
 import { TasksProvider } from "./Interfaces/taskContext";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation"
 
 
 const geistSans = Geist({
@@ -27,11 +29,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname()
   const links = [
     { href: "/homepage", label: "Homepage" },
     { href: "/taskboard", label: "Task Board" },
     { href: "/userprofile", label: "User Profile" },
   ];
+
+  const isHomepage = pathname === "/homepage";
+
   return (
     <html lang="en">
       <body

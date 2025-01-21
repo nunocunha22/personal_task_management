@@ -2,6 +2,7 @@
 import React from "react";
 import "../../app/globals.css"
 import Link from "next/link";
+import { usePathname } from "next/navigation"
 
 interface SidebarProps {
     links: { href: string, label: string }[]
@@ -16,16 +17,22 @@ export default function Sidebar({ links }: SidebarProps) {
         setIsSidebarOpen(false)
     }
 
+    const pathname = usePathname()
+    const isHomepage = pathname === "/homepage";
+
     return (
         <>
-            <div className="bg-slate-900 p-4 flex justify-between items-center">
+            <div
+                className={`bg-slate-900 p-4 flex justify-between items-center ${isHomepage ? "lg:hidden" : ""
+                    }`}
+            >
                 <button
                     onClick={toggleSidebar}
                     className="text-white focus:outline-none"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 md:hidden"
+                        className="h-6 w-6 lg:hidden"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -37,20 +44,22 @@ export default function Sidebar({ links }: SidebarProps) {
                             d="M4 6h16M4 12h16m-7 6h7"
                         />
                     </svg>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 hidden md:block"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                        />
-                    </svg>
+                    {!isHomepage && (
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6 hidden lg:block"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                            />
+                        </svg>
+                    )}
                 </button>
             </div>
             <div
