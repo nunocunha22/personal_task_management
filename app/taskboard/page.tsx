@@ -2,11 +2,13 @@
 import "../globals.css";
 import React from "react";
 import { Task, TaskStatus } from "../Interfaces/tasks";
+import { useTasks } from "../Interfaces/taskContext";
 
 
 export default function TaskList() {
 
-    const [tasks, setTasks] = React.useState<Task[]>([]);
+    // const [tasks, setTasks] = React.useState<Task[]>([]);
+    const { tasks, setTasks } = useTasks();
     const [newTask, setNewTask] = React.useState<{ title: string; description: string }>(
         { title: "", description: "" });
     const [editTaskId, setEditTaskId] = React.useState<number | null>(null);
@@ -39,18 +41,18 @@ export default function TaskList() {
         setEditTaskId(task.id);
         setNewTask({ title: task.title, description: task.description });
     };
-    //LOCAL STROAGE
-    React.useEffect(() => {
-        if (typeof window !== "undefined") {
-            const savedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-            setTasks(savedTasks);
-        }
-    }, []);
-    React.useEffect(() => {
-        if (typeof window !== "undefined") {
-            localStorage.setItem("tasks", JSON.stringify(tasks));
-        }
-    }, [tasks]);
+    // //LOCAL STORAGE
+    // React.useEffect(() => {
+    //     if (typeof window !== "undefined") {
+    //         const savedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+    //         setTasks(savedTasks);
+    //     }
+    // }, []);
+    // React.useEffect(() => {
+    //     if (typeof window !== "undefined") {
+    //         localStorage.setItem("tasks", JSON.stringify(tasks));
+    //     }
+    // }, [tasks]);
 
     //CANCEL
     const cancelTask = () => {
@@ -75,7 +77,7 @@ export default function TaskList() {
     };
 
     return (
-        <div>
+        <div className="p-6">
             <h1 className="text-2xl font-bold mb-4">Task List</h1>
             <div className="mb-2">
                 <input
@@ -166,5 +168,3 @@ export default function TaskList() {
         </div>
     );
 };
-
-// export default TaskList;

@@ -18,14 +18,14 @@ export default function Sidebar({ links }: SidebarProps) {
 
     return (
         <>
-            <div className="lg:hidden bg-slate-900 p-4 flex justify-between items-center">
+            <div className="bg-slate-900 p-4 flex justify-between items-center">
                 <button
                     onClick={toggleSidebar}
                     className="text-white focus:outline-none"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
+                        className="h-6 w-6 md:hidden"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -37,11 +37,25 @@ export default function Sidebar({ links }: SidebarProps) {
                             d="M4 6h16M4 12h16m-7 6h7"
                         />
                     </svg>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 hidden md:block"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                        />
+                    </svg>
                 </button>
             </div>
             <div
                 className={`fixed top-0 left-0 h-full w-64 bg-slate-900 text-white transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-                    } transition-transform duration-300 ease-in-out lg:hidden`}
+                    } transition-transform duration-300 ease-in-out`}
             >
                 <button
                     onClick={toggleSidebar}

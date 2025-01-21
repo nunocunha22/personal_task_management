@@ -61,7 +61,7 @@ export default function UserProfile() {
     };
 
     return (
-        <div>
+        <div className="p-6">
             <h1 className="text-2xl font-bold mb-4"> User Profile</h1>
             <div className="w-24 mb-4">
                 <img src="../../avatar-default.png" alt="Profile picture" />
