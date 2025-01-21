@@ -2,8 +2,6 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-To run the code without the need of downloading it, just click on the green button "Code"
-
 First, run the development server:
 
 ```bash
