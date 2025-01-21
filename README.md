@@ -3,16 +3,22 @@ Using Typescript and Tailwind.css to style the app
 
 ## Getting Started
 
+You can clone the project using the https clone option or download the zip file.
+
 First, run the development server:
 
 ```bash
-npm run dev
+npm install --> to install the needed dependencies 
+npm run dev --> to run the app
 # or
-yarn dev
+yarn install --> to install the needed dependencies
+yarn dev --> to run the app
 # or
-pnpm dev
+pnpm install --> to install the needed dependencies
+pnpm dev --> to run the app
 # or
-bun dev
+bun install --> to install the needed dependencies
+bun dev --> to run the app
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
