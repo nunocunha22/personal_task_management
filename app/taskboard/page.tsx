@@ -3,11 +3,11 @@ import "../globals.css";
 import React from "react";
 import { Task, TaskStatus } from "../Interfaces/tasks";
 import { useTasks } from "../Interfaces/taskContext";
+import Button from "../Reusables/button";
 
 
 export default function TaskList() {
 
-    // const [tasks, setTasks] = React.useState<Task[]>([]);
     const { tasks, setTasks } = useTasks();
     const [newTask, setNewTask] = React.useState<{ title: string; description: string }>(
         { title: "", description: "" });
@@ -98,18 +98,18 @@ export default function TaskList() {
                     className="border p-2 rounded w-full md:w-1/2 mb-2 text-black"
                 />
             </div>
-            <h5 className="mb-4">* Mandatory fields</h5>
+            <h5 className="mb-2">* Mandatory fields</h5>
             <div className="mb-6">
-                <button
+                <Button
                     onClick={handleAddOrEditTask}
-                    className={`bg-blue-500 text-white px-4 py-2 rounded ${editTaskId ? "bg-green-500" : ""
+                    className={`bg-blue-500 ${editTaskId ? "bg-green-500" : ""
                         }`}
                 >
                     {editTaskId ? "Update Task" : "Add Task"}
-                </button>
-                <button onClick={cancelTask} className="bg-zinc-600 text-white px-4 py-2 ml-2 rounded">
+                </Button>
+                <Button onClick={cancelTask} className="bg-zinc-600">
                     Cancel
-                </button>
+                </Button>
             </div>
 
 
@@ -131,7 +131,7 @@ export default function TaskList() {
                                         <p className="text-sm text-gray-600 break-words mb-4">{task.description}</p>
                                     </div>
                                     <div className="flex gap-2">
-                                        <div>
+                                        <div className="mt-auto">
                                             <select
                                                 value={task.status}
                                                 onChange={(e) =>
@@ -145,19 +145,18 @@ export default function TaskList() {
                                             </select>
                                         </div>
                                         <div className="ml-auto">
-                                            <button
+                                            <Button
                                                 onClick={() => editTask(task)}
-                                                className="text-blue-500 bg-white px-2 py-1 rounded mr-2"
+                                                className="text-blue-500 bg-white"
                                             >
                                                 Edit
-                                            </button>
-
-                                            <button
+                                            </Button>
+                                            <Button
                                                 onClick={() => deleteTask(task.id)}
-                                                className="bg-red-500 text-white px-2 py-1 rounded"
+                                                className="bg-red-500"
                                             >
                                                 Delete
-                                            </button>
+                                            </Button>
                                         </div>
                                     </div>
                                 </li>

@@ -3,7 +3,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import Sidebar from "./Interfaces/sidebar";
+import Sidebar from "./Reusables/sidebar";
 import { TasksProvider } from "./Interfaces/taskContext";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation"

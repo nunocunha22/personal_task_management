@@ -2,6 +2,7 @@
 import React from "react";
 import "../globals.css";
 import { Userprofile } from "../Interfaces/user";
+import Button from "../Reusables/button";
 
 export default function UserProfile() {
 
@@ -76,12 +77,17 @@ export default function UserProfile() {
                         <span className="font-bold text-xl">Email:</span>
                         {user.email}
                     </p>
-                    <button
+                    {/* <button
                         onClick={handleEdit}
                         className="bg-blue-500 text-white px-4 py-2 mt-4 rounded"
                     >
                         Edit
-                    </button>
+                    </button> */}
+                    <Button
+                        onClick={handleEdit}
+                        className="bg-blue-500">
+                        Edit
+                    </Button>
                 </div>
             ) : (
                 <form className="mt-4">
@@ -111,19 +117,17 @@ export default function UserProfile() {
                             className={`border px-2 py-1 w-full md:w-1/2 text-black ${isEmailValid ? "" : "border-red-500"}`}
                         />
                     </div>
-                    <div className="flex space-x-2">
-                        <button
+                    <div className="flex">
+                        <Button
                             onClick={handleSave}
-                            className="bg-blue-500 text-white px-4 py-2 rounded"
-                        >
+                            className="bg-blue-500">
                             Save
-                        </button>
-                        <button
+                        </Button>
+                        <Button
                             onClick={handleCancel}
-                            className="bg-zinc-600 text-white px-4 py-2 ml-2 rounded"
-                        >
+                            className="bg-zinc-600">
                             Cancel
-                        </button>
+                        </Button>
                     </div>
 
                 </form>

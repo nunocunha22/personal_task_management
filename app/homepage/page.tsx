@@ -1,5 +1,6 @@
 import "../globals.css";
 import Link from "next/link";
+import Button from "../Reusables/button";
 
 
 export default function Homepage() {
@@ -32,11 +33,11 @@ export default function Homepage() {
           <br />
           <p>Ready to get started? Click below to begin managing your tasks now!</p>
         </article>
-        <button className="bg-slate-700 text-white px-2 py-1 rounded ">
+        <Button className="bg-slate-700">
           <Link href="/taskboard" className="text-white">
             Get Started
           </Link>
-        </button>
+        </Button>
       </div>
     </div>
   );
